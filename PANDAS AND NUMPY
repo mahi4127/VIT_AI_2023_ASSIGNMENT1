@@ -1,0 +1,29 @@
+import pandas as pd
+import numpy as np
+
+np.random.seed(42)
+data = np.random.rand(4, 4)
+df = pd.DataFrame(data, columns=['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'])
+
+
+new_column_names = ['Random value 1', 'Random value 2', 'Random value 3', 'Random value 4']
+df = df.rename(columns=dict(zip(df.columns, new_column_names)))
+
+df.head()
+
+statistics = df.describe()
+statistics
+
+null_values = df.isnull().sum()
+null_values
+
+
+data_types = df.dtypes
+data_types
+
+columns_loc = df.loc[:, ['Random value 2', 'Random value 3']]
+columns_loc
+
+
+columns_iloc = df.iloc[:, [1, 2]]
+columns_iloc
